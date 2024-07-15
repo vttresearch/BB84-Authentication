@@ -20,8 +20,8 @@ Example for building and installing liboqs in `.local`:
     wget https://github.com/open-quantum-safe/liboqs/archive/refs/tags/0.7.2.zip
     unzip 0.7.2.zip
     cd liboqs-0.7.2
-    cmake -DCMAKE_INSTALL_PREFIX=$(pwd)/../.local -S . -B _build
-    cmake --build _build && cmake --install _build
+    sudo cmake -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=/usr/local -S . -B _build
+    sudo cmake --build _build && sudo cmake --install _build
     cd ..
 ```
 
@@ -44,6 +44,18 @@ Example for building and installing liboqs in `.local`:
     mkdir oqs-test && cd oqs-test
     export PROVIDERPATH="/home/user/oqs-provider-0.4.0/_build/oqsprov"
     openssl genpkey -out pqc.key -algorithm dilithium3 -provider-path $PROVIDERPATH -provider oqsprovider -provider default
+```
+
+## Step 4: install liboqs-python 0.7.2
+
+```
+    wget https://github.com/open-quantum-safe/liboqs-python/archive/refs/tags/0.7.2.zip
+    unzip 0.7.2.zip
+    python3 -m venv venv
+    source venv/bin/activate
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+    cd liboqs-python-0.7.2
+    python3 setup.py install
 ```
 
 ## Step 4: Clone this repository

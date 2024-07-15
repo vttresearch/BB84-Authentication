@@ -1,4 +1,7 @@
 signature_authentication/tmp/
 signature_authentication/auth_modules/__pycache__
 signature_authentication/sockets/__pycache__
+mac_authentication/auth_modules/__pycache__
+mac_authentication/sockets/__pycache__
 mac_authentication/tmp/
+venv/
