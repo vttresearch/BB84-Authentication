@@ -68,15 +68,38 @@ TODO: instructions how to run the software demo.
 
 Directory `signature_authentication` contains authentication software demo using post-quantum digital signature scheme CRYSTALS-Dilithium.
 
-## Note: Before using
+Directory `mac_authentication` contains authentication software demo using post-quantum key encapsulation algorithm Kyber and message authentication codes (`hmac`).
 
-Create private key and certificate for Alice and Bob on their respective laptops:
+**DISCLAIMER**: this repository does not contain any code to perform the actual BB84 key distillation with error correction and privacy amplification steps. The scripts in this repository are only used to demonstrate the quantum-safe authentication of the classical channel.
+
+For more details on the topic, please refer to this [publication](https://cris.vtt.fi/en/publications/quantum-safe-authentication-of-quantum-key-distribution-protocol).
+
+## Usage
+
+This is how you launch the `mac_authentication` demo:
+
+- Open a new terminal tab.
+- Execute the commands below:
 
 ```
-cd dilithium_sign
-python gen_auth_keys.py alice
+source venv/bin/activate
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+cd mac_authentication
+python3 alice.py
 ```
 
-This creates private key  `alice.key` and certificate `alice.der` in DER format to directory
-`dilithium_sign/tmp/`.
-If `tmp/` directory does not exist script creates it.
+This launches the `alice.py` program on port `localhost:65530`. Alice will wait connection from Bob.
+
+- Now, open another terminal tab
+- Execute the commands below:
+
+```
+source venv/bin/activate
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+cd mac_authentication
+python3 bob.py
+```
+
+This launches the `bob.py` program which connects to Alice on `localhost:65530` and starts the authenticated "key distillation" over the classical channel.
+
+Scripts use automatically created `./tmp/` directory for temporary file storage.
