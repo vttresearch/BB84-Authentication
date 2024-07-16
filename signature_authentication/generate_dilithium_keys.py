@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 import subprocess
 import sys
 import os

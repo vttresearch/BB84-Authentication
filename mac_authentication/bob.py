@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 import socket
 from sockets import msging
 from auth_modules import auth_controller

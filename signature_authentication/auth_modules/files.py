@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 def read_file(PATH, binarymod=True):
     mode = "rb" if binarymod else "r"
     with open(PATH, mode) as f:

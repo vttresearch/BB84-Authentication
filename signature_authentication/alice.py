@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 from sockets import msging
 import socket
 import os
