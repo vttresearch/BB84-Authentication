@@ -13,7 +13,7 @@ In this project `oqsprovider` is used to
 
 Start by defining environment variable in the shell
 ```
-export PROVIDERPATH="/home/user/oqs-provider/_build/oqsprov"
+export PROVIDERPATH="~/oqs-provider-0.4.0/_build/oqsprov"
 ```
 
 Commands are standard openssl commands with the addition of loading the provider.

@@ -1,12 +1,15 @@
-# BB84 Authentication
+# BB84 Authentication Demo
 
 This repository contains authentication software to use on the quantum link layer in BB84 QKD protocol.
 
-Authentication is implemented using PQC primitives implemented in open-source libraries liboqs and oqsprovider. More information on liboqs and oqs-provider [here](https://openquantumsafe.org/).
+Quantum safe authentication is implemented using PQC primitives.
 
 ## Getting started
 
 ### NOTE: 
+
+This software has external dependencies.
+The main dependencies are open-source libraries liboqs, liboqs-python and oqsprovider. More information on these libraries is available [here](https://openquantumsafe.org/).
 
 This software is tested using versions [liboqs=0.7.2](https://github.com/open-quantum-safe/liboqs/releases/tag/0.7.2)
 and [oqsprovider=0.4.0](https://github.com/open-quantum-safe/oqs-provider/releases/tag/0.4.0) 
@@ -14,7 +17,9 @@ and [liboqs-python=0.7.2](https://github.com/open-quantum-safe/liboqs-python/rel
 on a system running Ubuntu 22.04 with OpenSSL version 3.0.2.
 This software is not guaranteed to work with other versions of liboqs, liboqs-python, oqsprovider and OpenSSL.
 
-## Step 1: Building liboqs:
+Below some instructions on how to install these dependencies.
+
+### Step 1: Building liboqs:
 
 Example for building and installing liboqs in `.local`:
 
@@ -27,7 +32,7 @@ Example for building and installing liboqs in `.local`:
     cd ..
 ```
 
-## Step 2: Building oqsprovider:
+### Step 2: Building oqsprovider:
 
 `oqsprovider` can be built for example via the following:
 
@@ -39,7 +44,7 @@ Example for building and installing liboqs in `.local`:
     cmake --build _build
 ```
 
-## Step 3: Test the functionality of the libraries
+### Step 3: Test the functionality of the libraries
 
 ```
     cd ..
@@ -48,7 +53,7 @@ Example for building and installing liboqs in `.local`:
     openssl genpkey -out pqc.key -algorithm dilithium3 -provider-path $PROVIDERPATH -provider oqsprovider -provider default
 ```
 
-## Step 4: install liboqs-python 0.7.2
+### Step 4: install liboqs-python 0.7.2
 
 ```
     wget https://github.com/open-quantum-safe/liboqs-python/archive/refs/tags/0.7.2.zip
@@ -60,7 +65,7 @@ Example for building and installing liboqs in `.local`:
     python3 setup.py install
 ```
 
-## Step 5: Clone this repository
+### Step 5: Clone this repository
 
 TODO: instructions how to run the software demo.
 
@@ -69,6 +74,8 @@ TODO: instructions how to run the software demo.
 Directory `signature_authentication` contains authentication software demo using post-quantum digital signature scheme CRYSTALS-Dilithium.
 
 Directory `mac_authentication` contains authentication software demo using post-quantum key encapsulation algorithm Kyber and message authentication codes (`hmac`).
+
+We recommend using the `mac_authentication` alternative, as it is tested to be more efficient.
 
 **DISCLAIMER**: this repository does not contain any code to perform the actual BB84 key distillation with error correction and privacy amplification steps. The scripts in this repository are only used to demonstrate the quantum-safe authentication of the classical channel.
 

@@ -6,9 +6,18 @@ from auth_modules import auth_controller
 import oqs
 import os
 
-#############################################################
-# Key exhange using kyber for key gen. and dilithium for auth
-#############################################################
+##############################################################################
+# Key exhange using kyber for key gen. and hmac for message authentication
+# 
+# - Scripts alice.py and bob.py use ML-KEM (Kyber) to create a shared
+# secret which is then used to create message authentication codes.
+# - Before sending their public key to Bob, Alice digitally signs it
+# using ML-DSA (Dilithium).
+# - Alice then sends the signed public ML-KEM key, and self-signed certificate
+# containing the public ML-DSA key to Bob.
+# - Finally, Alice and Bob test the hmac using their shared secret generated
+# using ML-KEM.
+##############################################################################
 
 HOST = '127.0.0.1'
 PORT = 65530
