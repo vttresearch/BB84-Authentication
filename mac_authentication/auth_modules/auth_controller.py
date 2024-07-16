@@ -9,8 +9,6 @@ import sys
 PROVIDERPATH = "~/oqs-provider-0.4.0/_build/oqsprov" # change if needed
 OPENSSL_CONF = "/usr/lib/ssl/openssl.cnf" # change if needed
 
-##### this function is not used atm.
-##### private key and certificate generated with script dilithium_sign/generate_keys.py
 def create_pk_and_cert(subject):
    PRIVATE_KEY_PATH = f"./tmp/{subject}.key"
    CERTIFICATE_PATH = f"./tmp/{subject}.crt"
