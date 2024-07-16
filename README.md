@@ -4,6 +4,18 @@ This repository contains authentication software to use on the quantum link laye
 
 Quantum safe authentication is implemented using PQC primitives.
 
+## What is in this repository?
+
+Directory `signature_authentication` contains authentication software demo using *only* post-quantum digital signature scheme CRYSTALS-Dilithium.
+
+Directory `mac_authentication` contains authentication software demo using post-quantum key encapsulation algorithm Kyber and message authentication codes (`hmac`).
+
+We recommend using the `mac_authentication` alternative, as it is tested to be more efficient.
+
+**DISCLAIMER**: this repository does not contain any code to perform the actual BB84 key distillation with error correction and privacy amplification steps. The scripts in this repository are only used to demonstrate the quantum-safe authentication of the classical channel.
+
+Please refer to this [publication](https://cris.vtt.fi/en/publications/quantum-safe-authentication-of-quantum-key-distribution-protocol) for more background and details on the contents of this repository.
+
 ## Getting started
 
 ### NOTE: 
@@ -68,18 +80,6 @@ Example for building and installing liboqs in `/usr/local`:
 ### Step 5: Clone this repository
 
 Clone this repository and see the section "Usage" below.
-
-## What is in this repository
-
-Directory `signature_authentication` contains authentication software demo using *only* post-quantum digital signature scheme CRYSTALS-Dilithium.
-
-Directory `mac_authentication` contains authentication software demo using post-quantum key encapsulation algorithm Kyber and message authentication codes (`hmac`).
-
-We recommend using the `mac_authentication` alternative, as it is tested to be more efficient.
-
-**DISCLAIMER**: this repository does not contain any code to perform the actual BB84 key distillation with error correction and privacy amplification steps. The scripts in this repository are only used to demonstrate the quantum-safe authentication of the classical channel.
-
-For more details on the contents of this repository and the topic in general, please refer to this [publication](https://cris.vtt.fi/en/publications/quantum-safe-authentication-of-quantum-key-distribution-protocol).
 
 ## Usage
 
