@@ -81,6 +81,14 @@ if __name__ == "__main__":
             if shared_secret_alice == data_bob["shared_secret_bob"]:
                 print("shared secret OK")
 
-            # TODO: test hmac
+            with open("./tmp/shared_secret.alice", "wb") as f:
+                f.write(shared_secret_alice)
+
+            print('Creating message authentication code for key distillation message')
+            key_distillation_message = "THIS IS A KEY DISTILLATION MESSAGE THAT MUST BE AUTHENTICATED"
+            mac = auth_controller.create_hmac(plain_msg=key_distillation_message, sender="alice")
+            data_out = {'msg': key_distillation_message, 'mac': mac}
+            msging.send_msg(conn, data_out)
+            print('Sent message and MAC to Bob.\n------------->\n')
 
             conn.close()

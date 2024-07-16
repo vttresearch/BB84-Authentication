@@ -42,6 +42,9 @@ if __name__ == "__main__":
             print("encapsulating secret...")
             alice_pk = alice_data["pub_key"]
             cipher, shared_secret_bob = bob.encap_secret(alice_pk)
+
+        with open("./tmp/shared_secret.bob", "wb") as f:
+            f.write(shared_secret_bob)
         
         with open("./tmp/cipher", "wb") as f:
             f.write(cipher)
@@ -60,5 +63,7 @@ if __name__ == "__main__":
         print("Bob sent all his data to Alice")
         print("Packet contains:\n- dilithium certificate\n- signed ciphertext of shared secret\n- ciphertext of shared secret (for signature verification)\n- Bob's version of shared secret (for demo purposes only)")
         print("<----------------")
-
-
+        print("---------------->")
+        message = msging.recv_msg(s)
+        mac_bob = auth_controller.create_hmac(message['msg'], "bob")
+        auth_controller.compare_message_authentication_codes(senders_mac=message['mac'], receivers_mac=mac_bob)
