@@ -21,7 +21,7 @@ Below some instructions on how to install these dependencies.
 
 ### Step 1: Building liboqs:
 
-Example for building and installing liboqs in `.local`:
+Example for building and installing liboqs in `/usr/local`:
 
 ```
     wget https://github.com/open-quantum-safe/liboqs/archive/refs/tags/0.7.2.zip
