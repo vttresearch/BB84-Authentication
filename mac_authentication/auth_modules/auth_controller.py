@@ -6,7 +6,7 @@ import pickle
 import hmac
 import sys
 
-PROVIDERPATH = "~/oqs-provider-0.4.0/_build/oqsprov" # change if needed
+PROVIDERPATH = "/usr/src/app/oqs-provider-0.4.0/_build/oqsprov" # this is for the docker container. Consider using .env
 OPENSSL_CONF = "/usr/lib/ssl/openssl.cnf" # change if needed
 
 def create_pk_and_cert(subject):

@@ -18,6 +18,17 @@ Please refer to this [publication](https://cris.vtt.fi/en/publications/quantum-s
 
 ## Getting started
 
+### Using Docker
+
+- Clone this repository
+- Run `docker build . -t authentication-demo` (this takes a few minutes).
+- Run `docker run -it authentication-demo`. This should open a bash session inside the docker container.
+	- Inside the container run `cd mac_authentication` and `python3 alice.py`
+- Open a new terminal tab and run `docker exec -it <container_name> bash`. (**Note**: You should run `docker ps --all` to check the `<container_name>`.)
+	- Inside the container run `cd mac_authentication` and `python3 bob.py`.
+
+If you don't want to use Docker, below are some instructions for local set up.
+
 ### NOTE: 
 
 This software has external dependencies.
