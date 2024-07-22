@@ -25,4 +25,9 @@ RUN unzip 0.7.2.zip.1
 RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 RUN cd liboqs-python-0.7.2 && python3 setup.py install
 
-CMD /bin/bash
+# Start script
+RUN chmod +x ./start.sh
+
+ENTRYPOINT ["./start.sh"]
+
+CMD ["alice"]

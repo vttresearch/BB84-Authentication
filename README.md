@@ -22,10 +22,10 @@ Please refer to this [publication](https://cris.vtt.fi/en/publications/quantum-s
 
 - Clone this repository
 - Run `docker build . -t authentication-demo` (this takes a few minutes).
-- Run `docker run -it authentication-demo`. This should open a bash session inside the docker container.
-	- Inside the container run `cd mac_authentication` and `python3 alice.py`
-- Open a new terminal tab and run `docker exec -it <container_name> bash`. (**Note**: You should run `docker ps --all` to check the `<container_name>`.)
-	- Inside the container run `cd mac_authentication` and `python3 bob.py`.
+- Run `docker run -it --name authentication_container authentication-demo`.
+	- This should start the Alice side of the demo inside the container and print you some output.
+- Open a new terminal tab and run `docker exec -it authentication_container bash -c "./start.sh bob"`. (**Note**: If you omitted `--name authentication_container` from the previous command you should run `docker ps --all` to check the container_name.)
+	- This should start the Bob side of the demo inside the container and print you some output. Now Bob connects Alice and the demo should be running.
 
 If you don't want to use Docker, below are some instructions for local set up.
 
