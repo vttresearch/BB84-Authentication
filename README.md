@@ -31,7 +31,7 @@ This step will take a few minutes.
 
 - Run 
 ```
-docker run -it --name authentication_container authentication-demo`.
+docker run -it --name authentication_container authentication-demo
 ```
 
 This should start the Alice side of the demo inside the container and print you some output.
